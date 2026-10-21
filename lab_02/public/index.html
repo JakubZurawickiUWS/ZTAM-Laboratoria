@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Aplikacja PWA umożliwiająca wyświetlanie powiadomień lokalnych i Web Push.">
+    <title>Powiadomienia</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="android.png">
+    <script src="notification.js" defer></script>
+    <style>
+        button,
+        select,
+        input {
+            min-height: 44px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h2>Web Push</h2>
+        <button id="subscribe">Subskrybuj powiadomienia push</button>
+        <button id="unsubscribe">Anuluj subskrypcję</button>
+        <p>
+            <label for="subscription">Subskrypcja (skopiuj do pliku lab_02/subscription.json):
+            </label><br />
+            <textarea id="subscription" rows="10" cols="60" readonly></textarea>
+        </p>
+        <button id="copy">Kopiuj subskrypcję</button>
+
+        <h1>Notification API</h1>
+        <p>Uprawnienie do powiadomień: <strong id="permission">?</strong></p>
+        <button id="enable">Włącz powiadomienia</button>
+        <button id="local">Powiadomienie ze strony</button>
+        <button id="sw">Powiadomienie z service workera</button>
+
+        <h2>Własne powiadomienie</h2>
+
+        <form id="notification-form">
+            <input id="notification-title" placeholder="Tytuł" required>
+            <input id="notification-body" placeholder="Treść">
+
+            <label for="notification-icon">Wybierz ikonę:</label>
+            <select id="notification-icon">
+                <option value="android.png">Ikona 1</option>
+                <option value="icons/japko.png">Ikona 2</option>
+                <option value="icons/manifest-icon-512.maskable.png">Ikona 3</option>
+            </select>
+
+            <button type="submit">Wyślij powiadomienie</button>
+        </form>
+    </main>
+</body>
+
+</html>
